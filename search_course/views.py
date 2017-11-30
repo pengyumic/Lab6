@@ -21,19 +21,21 @@ def get_form(form):
 
 
 def search_page(request):
+    form = UserForm()
+    return render(request, 'search_course/search_page.html', {'form':form})
+
+
+def result_page(request):
     if request.method == "POST":
         form = UserForm(request.POST)
         if form.is_valid():
             s = search()            
             courses = s.get_courses(get_form(form.cleaned_data))
             # for debug print
-            for c in courses:
-                print(c.course_info)
-            return redirect('result_page')
+            # for c in courses:
+            #     print(c.course_info)
+            
+            return render(request, 'search_course/result_page.html', {'courses': courses})
     else:
         form = UserForm()
-    return render(request, 'search_course/search_page.html', {'form':form})
-
-def result_page(request):
-    return render(request, 'search_course/result_page.html')
-
+    return redirect('search_page')

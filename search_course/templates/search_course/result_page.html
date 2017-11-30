@@ -3,6 +3,11 @@
 	<title>Result</title>
     </head>
     <body>
-	<p>You are all set</p>
+	{% for c in courses %}	
+	<p>{{ c.course_info }}</p>
+	<p>{{ c.course_seats }}</p>
+	<br/>
+	{% endfor %}
+	
     </body>
 </html>
