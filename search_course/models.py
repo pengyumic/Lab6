@@ -118,10 +118,9 @@ class User(models.Model):
     # list of strings
     sel_attr = models.CharField(max_length=50, choices=attribute_type, default='%')
     sel_camp = models.CharField(max_length=50, choices=campus, default='%')
-    sel_day = MultiSelectField(choices=days)
+    # sel_day = MultiSelectField(choices=days, default='%')
     sel_insm = models.CharField(max_length=50, choices=instructional_method, default='%')
-    sel_instr = models.CharField(max_length=100, null=True, default=default_list)
-    sel_levl = models.CharField(max_length=50, default="'dummy'")
+    # sel_instr = models.CharField(max_length=100, null=True, default=default_list)    
     sel_ptrm = models.CharField(max_length=50, choices=part_of_term, default='%')
     sel_schd = models.CharField(max_length=50, choices=schedule_type, default='%')
     sel_sess = models.CharField(max_length=50, choices=session, default='%')
