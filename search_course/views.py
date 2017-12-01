@@ -11,10 +11,8 @@ def get_form(form):
     new_form = dict(form)
     new_form.pop('email', None)
     wrap_keys(new_form, 'sel_attr', 'sel_camp', 'sel_insm',
-              'sel_ptrm', 'sel_schd', 'sel_sess', 'sel_subj')
+              'sel_ptrm', 'sel_schd', 'sel_sess', 'sel_subj', 'sel_instr', 'sel_day')
     # manually add keys and values
-    new_form['sel_instr'] = ['dummy', '%']
-    new_form['sel_day'] = ['dummy']
     new_form['term_in'] = '201820'
     new_form['sel_levl'] = 'dummy'
     return new_form
@@ -29,8 +27,9 @@ def result_page(request):
     if request.method == "POST":
         form = UserForm(request.POST)
         if form.is_valid():
-            s = search()            
-            courses = s.get_courses(get_form(form.cleaned_data))
+            s = search()
+            new_form = get_form(form.cleaned_data)
+            courses = s.get_courses(new_form)
             # for debug print
             # for c in courses:
             #     print(c.course_info)
