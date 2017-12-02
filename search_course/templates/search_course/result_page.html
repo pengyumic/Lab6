@@ -4,7 +4,9 @@
     </head>
     <body>
       {% for c in courses %}      
-      <a href={{ c.course_url }}>{{ c.course_title}}</a>
+      <a href={{ c.course_url }}>{{ c.course_title}}</a>      
+      <p>{{ c.course_info }}</p>
+      <p>{{ c.course_seats }}</p>
       <br/>
       {% endfor %}
 	

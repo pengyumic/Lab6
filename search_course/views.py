@@ -10,8 +10,12 @@ def get_form(form):
     
     new_form = dict(form)
     new_form.pop('email', None)
+    if new_form['sel_day'] == []:
+        new_form['sel_day'] = ['dummy', '%']
+    else:
+        new_form['sel_day'] = ['dummy'] + new_form['sel_day']        
     wrap_keys(new_form, 'sel_attr', 'sel_camp', 'sel_insm',
-              'sel_ptrm', 'sel_schd', 'sel_sess', 'sel_subj', 'sel_instr', 'sel_day')
+              'sel_ptrm', 'sel_schd', 'sel_sess', 'sel_subj', 'sel_instr',)
     # manually add keys and values
     new_form['term_in'] = '201820'
     new_form['sel_levl'] = 'dummy'

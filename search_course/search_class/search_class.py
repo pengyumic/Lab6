@@ -10,7 +10,11 @@ class course:
         self.course_info = info
         self.course_seats = seats
         self.course_url = url
-
+        self.course_crn = None
+        if url != None:
+            self.course_crn = re.search('crn_in=(\d+)', url).group(1)
+            
+            
     def set_info(self, info):
         self.course_info = info
         
@@ -20,8 +24,8 @@ class course:
 
 
     def set_url(self, url):
-        self.course_url = url
-
+        self.course_url = url        
+        self.course_crn = re.search('crn_in=(\d+)', url).group(1)
 
     def is_available(self):
         return int(self.course_seats['Remaining'][0]) > 0
