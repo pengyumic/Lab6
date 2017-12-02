@@ -2,3 +2,4 @@ Django==1.11
 pytz==2017.3
 requests==2.18.4
 lxml==4.1.1
+django-multiselectfield==0.1.8
