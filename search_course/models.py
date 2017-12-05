@@ -1,6 +1,6 @@
 from django.db import models
 from multiselectfield import MultiSelectField
-
+from django.contrib.auth.models import User
 am = 'a'
 pm = 'p'
 am_pm = (('a', 'am'), ('p', 'pm'))
@@ -3470,7 +3470,7 @@ instructors = (
     ("5A7B5AC99466118EBBE0BFA6DA08AA82", "Zywicki, Stephanie M"),
 )
 # Create your models here.
-class User(models.Model):
+class Courses(models.Model):
     email = models.EmailField()
 
     begin_ap = models.CharField(max_length=1, choices=am_pm, default=am)
@@ -3479,23 +3479,30 @@ class User(models.Model):
     end_ap = models.CharField(max_length=1, choices=am_pm, default=am)
     end_hh = models.CharField(max_length=2, choices=hours, default='00')
     end_mi = models.CharField(max_length=2, choices=minutes, default='00')
-    
+
     # list of strings
     sel_attr = models.CharField("Attribute Type", max_length=50, choices=attribute_type, default='%')
     sel_camp = models.CharField("Campus", max_length=50, choices=campus, default='%')
     sel_day = MultiSelectField("Days", choices=days, blank=True, default='%')
     sel_insm = models.CharField("Instructional Method", max_length=50, choices=instructional_method, default='%')
-    sel_instr = models.CharField("Instructors", max_length=100, choices=instructors, default='%')    
+    sel_instr = models.CharField("Instructors", max_length=100, choices=instructors, default='%')
     sel_ptrm = models.CharField("Part of Term", max_length=50, choices=part_of_term, default='%')
     sel_schd = models.CharField("Schedule Type", max_length=50, choices=schedule_type, default='%')
     sel_sess = models.CharField("Session", max_length=50, choices=session, default='%')
     sel_subj = models.CharField("Subject", max_length=50, choices=subject, default='AAE')
-    
+
     sel_title = models.CharField(max_length=100, blank=True)
     sel_crse = models.CharField(max_length=10)
-    
+
     sel_from_cred = models.CharField(max_length=2, blank=True)
     sel_to_cred = models.CharField(max_length=2,blank=True)
 
     def __str__(self):
         return self.email
+
+
+class OneSearch(models.Model):
+    csn=models.CharField(max_length=10)
+    # emailAdd=models.EmailField(null=True)
+    subj=models.CharField("Subject", max_length=50, choices=subject, default='AAE')
+    creator=models.ForeignKey(User,null=True)

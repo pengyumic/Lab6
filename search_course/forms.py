@@ -1,8 +1,8 @@
 from django.forms import Select
 from django import forms
-from .models import User
+from .models import Courses
 
-class UserForm(forms.ModelForm):
+class CoursesForm(forms.ModelForm):
     # email = forms.EmailField(error_messages={'requir'})
     # sel_subj = forms.ChoiceField(choices=subject, error_messages={'required':'Please select a subject'})
     # def clean_sel_subj(self):
@@ -10,9 +10,9 @@ class UserForm(forms.ModelForm):
     #     if (subj == '---------'):
     #         raise forms.ValidationError("You have forgotten about subject!")
     #     return subj
-        
+
     class Meta:
-        model = User
+        model = Courses
         fields = [
             'sel_subj', 'sel_crse', 'sel_title', 'sel_schd',
             'sel_insm', 'sel_from_cred', 'sel_to_cred', 'sel_camp',
