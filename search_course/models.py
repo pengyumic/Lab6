@@ -3503,6 +3503,6 @@ class Courses(models.Model):
 
 class OneSearch(models.Model):
     csn=models.CharField(max_length=10)
-    # emailAdd=models.EmailField(null=True)
+    emailAdd=models.EmailField(null=True)
     subj=models.CharField("Subject", max_length=50, choices=subject, default='AAE')
     creator=models.ForeignKey(User,null=True)

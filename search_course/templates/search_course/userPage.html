@@ -6,6 +6,7 @@
       {% for s in searches %}
       <p>{{ s.subj }}</p>
       <p>{{ s.csn }}</p>
+      <p>{{ s.emailAdd }}</p>
       <br/>
       {% endfor %}
       <a  style="float:left;" class="link" href="{% url 'logout' %}">Log Out</a>
