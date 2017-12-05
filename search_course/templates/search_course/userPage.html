@@ -8,6 +8,7 @@
       <p>{{ s.csn }}</p>
       <br/>
       {% endfor %}
-	    <!-- <button id="tosearch" class="tosearchclass"type="button" href="search/' %}"> Add new search </button> -->
+      <a  style="float:left;" class="link" href="{% url 'logout' %}">Log Out</a>
+	    <a style="float:right;" class="link"  href="{% url 'search_course:search_page' %}"> Add new search </a>
     </body>
 </html>

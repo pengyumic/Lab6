@@ -1,6 +1,7 @@
 from django.conf.urls import url
 from . import views
 
+app_name='search_course'
 urlpatterns = [
     url(r'^signup/$', views.signup, name='sign_up'),
     url(r'^userPage/$', views.userPage, name='userPage'),

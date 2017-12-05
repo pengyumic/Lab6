@@ -1,12 +1,13 @@
 <html>
     <head>
-	<title>Course Alert</title>	
+	<title>Course Alert</title>
     </head>
     <body>
-	<h1>Class Search</h1>
-	<form action="result/" method="POST">{% csrf_token %}
+	      <h1>Class Search</h1>
+	      <form action="result/" method="POST">{% csrf_token %}
             {{ form.as_p }}
             <button type="submit">Submit</button>
         </form>
+        <a  style="float:left;" class="link" href="{% url 'search_course:userPage' %}">Back to userpage</a>
     </body>
 </html>
