@@ -6,24 +6,24 @@
     <link rel="stylesheet" href="/static/css/login.css">
   </head>
 
-  <body id="bodyLogin">
-      <div id="logoDiv">
-        <h2>course</h2>
+  <body id=loginPage>
+      <div>
+        <h3>Course Alert</h3>
       </div>
-      <div id="divLogin">
-        <form id="formLogin" method="post">{% csrf_token %}
-          <div class="inputDiv">
-            <input type="text" class="inputDiv" name="username" maxlength="150" autofocus required id="id_username" placeholder="username"/>
+      <div>
+        <form method="post">{% csrf_token %}
+          <div>
+            <input type="text" class="inputBlock" name="username" maxlength="150" autofocus required id="id_username" placeholder="username"/>
+          </div>
+          <div>
+            <input type="password" class="inputBlock" name="password1" required id="id_password1" placeholder="password" />
+          </div>
+          <div>
+            <input type="password" class="inputBlock" name="password2" required id="id_password2" placeholder="confirm Password"/>
           </div>
           <div class="inputDiv">
-            <input type="password" class="inputDiv" name="password1" required id="id_password1" placeholder="password" />
-          </div>
-          <div class="inputDiv">
-            <input type="password" class="inputDiv" name="password2" required id="id_password2" placeholder="confirm Password"/>
-          </div>
-          <div class="inputDiv">
-            <a id="signUp" class="loginBtn" type="button" href="{% url 'login' %}">Log In</a>
-            <button id="signUp" class="loginBtn" type="submit"> Sign Up </button>
+            <a class="loginBtn" type="button" href="{% url 'login' %}">Log In</a>
+            <button class="loginBtn" type="submit"> Sign Up </button>
           </div>
         </form>
       </div>

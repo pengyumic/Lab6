@@ -57,7 +57,7 @@ def result_page(request):
             courses = s.get_courses(new_form)
             new_search = OneSearch(csn=new_form['sel_crse'], subj=new_form['sel_subj'],creator=request.user)
             # new_search.emailAdd=new_form['email']
-            new_search.save();
+            new_search.save()
             # for debug print
             # for c in courses:
             #     print(c.course_info)
