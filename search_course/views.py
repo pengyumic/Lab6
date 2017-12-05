@@ -30,7 +30,7 @@ def get_form(form):
     return new_form
 
 
-@login_required(login_url='')
+@login_required
 def search_page(request):
     user = User.objects.get(username=request.user)
     form = CoursesForm()
@@ -76,7 +76,7 @@ def signup(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username,password=raw_password)
             login(request, user)
-            return search_page(request)
+            return redirect('search_page')
     else:
         form = UserCreationForm()
     return render(request, 'registration/signup.html', {'form':form})
