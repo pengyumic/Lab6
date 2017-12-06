@@ -82,7 +82,7 @@ def signup(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username,password=raw_password)
             login(request, user)
-            return redirect('search_page')
+            return redirect('search_course:search_page')
     else:
         form = UserCreationForm()
     return render(request, 'registration/signup.html', {'form':form})
