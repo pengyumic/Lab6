@@ -1,13 +1,54 @@
+<!DOCTYPE html>
 <html>
     <head>
 	<title>Result</title>
-    </head>
+	<style type="text/css">
+	body {
+		background-color : #87CEFA;}
+   </style> 
+	</head>
+	
     <body>
+	
+	
       {% for c in courses %}      
-      <a href={{ c.course_url }}>{{ c.course_title}}</a>      
-      <p>{{ c.course_info }}</p>
-      <p>{{ c.course_seats }}</p>
+	  <a href={{ c.course_url }}>{{ c.course_title}}</a>
+	  <table width="600" cellpadding="20" cellspacing="20">
+    
+	     <tr> 
+		  {% for key1 in c.course_info %}
+		      
+			  <th width="100" bgcolor="#cccccc">{{key1}}</th>
+		  {% endfor %}
+		  {% for key3 in c.course_seats %}
+		     {% if forloop.counter0 == 0 %}
+			   <th bgcolor="#cccccc">Registration availability</th>
+			   {% else %}
+			  <th bgcolor="#cccccc">{{key3}}</th>
+			  {% endif %}
+		  {% endfor %}
+			</tr>
+			 <tr>
+			{% for key2,value1 in c.course_info.items %}
+			  
+			   <td>{{value1}}</td>
+				
+			{% endfor %}
+			
+			{% for key4,value2 in c.course_seats.items %}
+			   {% for value3 in value2 %}
+			   
+			   {% if forloop.counter0 == 0 %}
+			   <td>{{value3}}</td>
+			   {% endif %}
+				{% endfor %}
+				
+			{% endfor %}
+			</tr>
+      
+	   
       <br/>
+	  </table>
       {% endfor %}
 	
     </body>
