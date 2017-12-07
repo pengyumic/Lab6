@@ -9,10 +9,14 @@ from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from getpass import getpass
+from threading import Thread
+from .send_email import send_email
 
-sender = input("sender email(must be 163 email): ")
+sender = input("sender email(must be gmail): ")
 mail_pass = getpass("password: ")
-
+s = search()
+mailer = send_email(s, sender, mail_pass)
+mailer.start()
 # Create your views here.
 
 def get_form(form):
@@ -56,14 +60,15 @@ def result_page(request):
     if request.method == "POST":
         form = CoursesForm(request.POST)
         if form.is_valid():
-            s = search()
+            global s            
             email = form.cleaned_data['email']
             new_form = get_form(form.cleaned_data)
             courses = s.get_courses(new_form)
             new_search = OneSearch(csn=new_form['sel_crse'], emailAdd=email, subj=new_form['sel_subj'][1],creator=request.user)
             # new_search.emailAdd=new_form['email']
             new_search.save()
-            print(sender)
+            global mailer
+            mailer.add_one_search(new_search.pk, courses, email)
             # for debug print
             # for c in courses:
             #     print(c.course_info)
@@ -86,17 +91,3 @@ def signup(request):
     else:
         form = UserCreationForm()
     return render(request, 'registration/signup.html', {'form':form})
-
-# def login(request):
-#     if request.method == 'POST':
-#         form = UserCreationForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             username = form.cleaned_data.get('username')
-#             raw_password = form.cleaned_data.get('password1')
-#             user = authenticate(username=username,password=raw_password)
-#             login(request, user)
-#             return search_page(request)
-#     else:
-#         form = UserCreationForm()
-#     return render(request, 'search_course/login.html', {'form':form})
