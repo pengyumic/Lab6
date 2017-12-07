@@ -1,13 +1,21 @@
+<!DOCTYPE html>
 <html>
-    <head>
-	<title>Course Alert</title>
-    </head>
-    <body>
-	      <h1>Class Search</h1>
-	      <form action="result/" method="POST">{% csrf_token %}
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Course Search</title>
+    <link rel="stylesheet" href="/static/css/searchPage.css">
+  </head>
+
+
+    <body id="mainbody">
+        <a class="link" href="{% url 'search_course:userPage' %}">Back to userpage</a>
+	      <h1 id="heading">Class Search</h1>
+
+	      <form id="formBody" action="result/" method="POST">{% csrf_token %}
             {{ form.as_p }}
-            <button type="submit">Submit</button>
+            <button id="submitButton" type="submit">Submit</button>
         </form>
-        <a  style="float:left;" class="link" href="{% url 'search_course:userPage' %}">Back to userpage</a>
+
     </body>
 </html>
