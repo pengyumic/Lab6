@@ -76,7 +76,7 @@ def result_page(request):
             return render(request, 'search_course/result_page.html', {'courses': courses})
     else:
         form = CoursesForm()
-    return redirect('search_page')
+    return redirect('search_course:search_page')
 
 def signup(request):
     if request.method == 'POST':
