@@ -9,11 +9,11 @@
 	</head>
 	
     <body>
-	
+	  
 	
       {% for c in courses %}      
 	  <a href={{ c.course_url }}>{{ c.course_title}}</a>
-	  <table width="600" cellpadding="20" cellspacing="20">
+	  <table width="600" cellpadding="20" cellspacing="15">
     
 	     <tr> 
 		  {% for key1 in c.course_info %}
@@ -44,12 +44,17 @@
 				{% endfor %}
 				
 			{% endfor %}
+			
 			</tr>
-      
+			{% comment %}
+			<p>
+			Add the course to Alert? 
+			<input type="submit" value="Add">
+			</p>
+         {% endcomment %}
 	   
       <br/>
 	  </table>
       {% endfor %}
-	
     </body>
 </html>
