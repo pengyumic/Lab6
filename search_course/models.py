@@ -3473,12 +3473,12 @@ instructors = (
 class Courses(models.Model):
     email = models.EmailField()
 
-    begin_ap = models.CharField(max_length=1, choices=am_pm, default=am)
-    begin_hh = models.CharField(max_length=2, choices=hours, default='00')
-    begin_mi = models.CharField(max_length=2, choices=minutes, default='00')
-    end_ap = models.CharField(max_length=1, choices=am_pm, default=am)
-    end_hh = models.CharField(max_length=2, choices=hours, default='00')
-    end_mi = models.CharField(max_length=2, choices=minutes, default='00')
+    begin_ap = models.CharField("begin am/pm", max_length=1, choices=am_pm, default=am)
+    begin_hh = models.CharField("begin hour", max_length=2, choices=hours, default='00')
+    begin_mi = models.CharField("begin minutes", max_length=2, choices=minutes, default='00')
+    end_ap = models.CharField("end am/pm", max_length=1, choices=am_pm, default=am)
+    end_hh = models.CharField("begin hour", max_length=2, choices=hours, default='00')
+    end_mi = models.CharField("begin minutes", max_length=2, choices=minutes, default='00')
 
     # list of strings
     sel_attr = models.CharField("Attribute Type", max_length=50, choices=attribute_type, default='%')
