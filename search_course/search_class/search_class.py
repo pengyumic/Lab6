@@ -30,6 +30,12 @@ class course:
     def is_available(self):
         return int(self.course_seats['Remaining'][0]) > 0
 
+    def email_format(self):
+        return self.course_title+" now has "+self.course_seats['Remaining'][0]+" remaining seats"
+    def __str__(self):
+        return self.course_title+"\n"+str(self.course_seats)+"\n"\
+            +str(self.course_seats)+"\n"+self.course_url+"\n"\
+            +str(self.course_crn)
     
 class search:
 
@@ -74,6 +80,7 @@ class search:
         return courses
 
     def get_tables(self, courses):
+        has_seats = []
         for k in range(len(courses)):
             header1 = {
                 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
@@ -99,4 +106,7 @@ class search:
                     t.append(nums[j][i])
                 s.append(t)
             seats = dict(zip([i.xpath('text()')[0] if i.get('class') == 'dddead' else i.xpath('span/text()')[0] for i in rs[0].getchildren()], s))
-            courses[k].set_seats(seats)   
+            courses[k].set_seats(seats)
+            if courses[k].is_available():
+                has_seats.append(k)
+        return has_seats
