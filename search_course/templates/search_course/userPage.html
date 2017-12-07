@@ -1,15 +1,41 @@
+<!DOCTYPE html>
 <html>
     <head>
-	<title>Result</title>
+	<title>UserPage</title>
+  <link rel="stylesheet" href="/static/css/userPage.css">
     </head>
-    <body>
-      {% for s in searches %}
-      <p>{{ s.subj }}</p>
-      <p>{{ s.csn }}</p>
-      <p>{{ s.emailAdd }}</p>
-      <br/>
-      {% endfor %}
-      <a  style="float:left;" class="link" href="{% url 'logout' %}">Log Out</a>
-	    <a style="float:right;" class="link"  href="{% url 'search_course:search_page' %}"> Add new search </a>
+    <body id=mainbody>
+
+
+      <div id="headingBlock">
+        <img id="logo" src="/static/img/alert.png" >
+        <h1 id="heading">User Page</h1>
+        <a   class="link" href="{% url 'logout' %}">Log Out</a>
+  	    <a  class="link"  href="{% url 'search_course:search_page' %}"> Add new search </a>
+      </div>
+      <div>
+        <h2>Search History</h2>
+      </div>
+      <div style="overflow-x:auto;">
+        <table>
+          <tr>
+            <th>Subject</th>
+            <th>Course Number</th>
+            <th>email</th>
+          </tr>
+            {% for s in searches %}
+            <tr id="content">
+              <td>{{ s.subj }}</td>
+              <td>{{ s.csn }}</td>
+              <td>{{ s.emailAdd }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+      </div>
+
+
+
+
+
     </body>
 </html>
