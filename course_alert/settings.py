@@ -126,5 +126,3 @@ STATICFILES_DIRS = [
 ]
 LOGIN_REDIRECT_URL = '/userPage/'
 LOGIN_URL='/'
-import dj_database_url
-DATABASES = { 'default': dj_database_url.config() }
