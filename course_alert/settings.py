@@ -126,3 +126,5 @@ STATICFILES_DIRS = [
 ]
 LOGIN_REDIRECT_URL = '/userPage/'
 LOGIN_URL='/'
+import dj_database_url
+DATABASES['default'].update(dj_database_url.config(conn_max_age=500))

@@ -3,3 +3,7 @@ pytz==2017.3
 requests==2.18.4
 lxml==4.1.1
 django-multiselectfield==0.1.8
+gunicorn==19.6.0
+dj-database-url==0.4.1
+psycopg2==2.6.2
+whitenoise==3.2
