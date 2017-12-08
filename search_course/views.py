@@ -12,8 +12,8 @@ from getpass import getpass
 from threading import Thread
 from .send_email import send_email
 
-sender = input("sender email(must be gmail): ")
-mail_pass = getpass("password: ")
+sender = purduecoursealert@gmail.com
+mail_pass = purduecs252
 s = search()
 mailer = send_email(s, sender, mail_pass)
 mailer.start()
@@ -60,7 +60,7 @@ def result_page(request):
     if request.method == "POST":
         form = CoursesForm(request.POST)
         if form.is_valid():
-            global s            
+            global s
             email = form.cleaned_data['email']
             new_form = get_form(form.cleaned_data)
             courses = s.get_courses(new_form)
