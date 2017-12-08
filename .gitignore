@@ -3,7 +3,6 @@
 *.py[co]
 *~
 .tox/
-db.sqlite3
 __pycache__
 MANIFEST
 dist/
