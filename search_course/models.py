@@ -3491,11 +3491,11 @@ class Courses(models.Model):
     sel_sess = models.CharField("Session", max_length=50, choices=session, default='%')
     sel_subj = models.CharField("Subject", max_length=50, choices=subject, default='AAE')
 
-    sel_title = models.CharField(max_length=100, blank=True)
-    sel_crse = models.CharField(max_length=10)
+    sel_title = models.CharField("Course Title", max_length=100, blank=True)
+    sel_crse = models.CharField("Course Number", max_length=10)
 
-    sel_from_cred = models.CharField(max_length=2, blank=True)
-    sel_to_cred = models.CharField(max_length=2,blank=True)
+    sel_from_cred = models.CharField("Select from credit", max_length=2, blank=True)
+    sel_to_cred = models.CharField("Select to credit", max_length=2,blank=True)
 
     def __str__(self):
         return self.email

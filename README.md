@@ -9,3 +9,5 @@ CS252 lab6 project
 3. run "pip install -r requirements.txt"
 
 4. (option) "pip install ipython" (a really good replacement for python shell)
+
+5. The project is hosted on Heroku. Link:https://purdue-course-alert.herokuapp.com/
