@@ -1,61 +1,47 @@
 <!DOCTYPE html>
 <html>
-    <head>
-	<title>Result</title>
-	<style type="text/css">
-	body {
-		background-color : #87CEFA;}
-   </style> 
-	</head>
-	
-    <body>
-	  
-	
-      {% for c in courses %}      
-	  <a href={{ c.course_url }}>{{ c.course_title}}</a>
-	  <table width="600" cellpadding="20" cellspacing="15">
-    
-	     <tr> 
-		  {% for key1 in c.course_info %}
-		      
-			  <th width="100" bgcolor="#cccccc">{{key1}}</th>
-		  {% endfor %}
-		  {% for key3 in c.course_seats %}
-		     {% if forloop.counter0 == 0 %}
-			   <th bgcolor="#cccccc">Registration availability</th>
-			   {% else %}
-			  <th bgcolor="#cccccc">{{key3}}</th>
-			  {% endif %}
-		  {% endfor %}
-			</tr>
-			 <tr>
-			{% for key2,value1 in c.course_info.items %}
-			  
-			   <td>{{value1}}</td>
-				
-			{% endfor %}
-			
-			{% for key4,value2 in c.course_seats.items %}
-			   {% for value3 in value2 %}
-			   
-			   {% if forloop.counter0 == 0 %}
-			   <td>{{value3}}</td>
-			   {% endif %}
-				{% endfor %}
-				
-			{% endfor %}
-			
-			</tr>
-			{% comment %}
-			<p>
-			Add the course to Alert? 
-			<input type="submit" value="Add">
-			</p>
-         {% endcomment %}
-	   
-      <br/>
-	  </table>
-	  {% endfor %}
-	  <a class="link" href="{% url 'search_course:userPage' %}">Back to userpage</a>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Result</title>
+    <link rel="stylesheet" href="/static/css/resultPage.css">
+  </head>
+
+    <body id="mainbody">
+      <a class="link" href="{% url 'search_course:userPage' %}">Back to userpage</a>
+      <h1 id="heading">Search Result</h1>
+      {% for c in courses %}
+	       <a id="link" href={{ c.course_url }}>{{ c.course_title}}</a>
+         <div style="overflow-x:auto;">
+           <table>
+  	          <tr>
+  		            {% for key1 in c.course_info %}
+  			             <th>{{key1}}</th>
+  		            {% endfor %}
+  		            {% for key3 in c.course_seats %}
+  		            {% if forloop.counter0 == 0 %}
+  			             <th>Registration availability</th>
+  			           {% else %}
+  			              <th>{{key3}}</th>
+  			           {% endif %}
+  		             {% endfor %}
+  			       </tr>
+  			       <tr id="content">
+  			            {% for key2,value1 in c.course_info.items %}
+  			               <td>{{value1}}</td>
+  			            {% endfor %}
+  			            {% for key4,value2 in c.course_seats.items %}
+  			               {% for value3 in value2 %}
+  			                  {% if forloop.counter0 == 0 %}
+  			                     <td>{{value3}}</td>
+  			                   {% endif %}
+  				              {% endfor %}
+  			             {% endfor %}
+  			       </tr>
+  	        </table>
+         </div>
+
+	      {% endfor %}
+	      <a class="link" href="{% url 'search_course:userPage' %}">Back to userpage</a>
     </body>
 </html>
