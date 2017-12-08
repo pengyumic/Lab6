@@ -1,7 +1,7 @@
 #loginPage{
   text-align: center;
   padding: 7px 12px;
-  background-image: url("../img/purdue.jpg");
+  background-image: url("/static/img/purdue.jpg");
   background-repeat: no-repeat;
   background-size: 100% auto ;
   background-color: transparent;
