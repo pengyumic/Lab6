@@ -1,1 +1,1 @@
-web: gunicorn purduecoursealert.wsgi --log-file -
+web: gunicorn courses-availability-search.wsgi --log-file -
