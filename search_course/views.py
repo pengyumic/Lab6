@@ -12,8 +12,8 @@ from getpass import getpass
 from threading import Thread
 from .send_email import send_email
 
-sender = purduecoursealert@gmail.com
-mail_pass = purduecs252
+sender = "purduecoursealert@gmail.com"
+mail_pass = "purduecs252"
 s = search()
 mailer = send_email(s, sender, mail_pass)
 mailer.start()
