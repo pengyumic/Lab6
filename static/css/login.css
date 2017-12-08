@@ -1,0 +1,31 @@
+#loginPage{
+  text-align: center;
+  padding: 7px 12px;
+  background-image: url("../img/purdue.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% auto ;
+  background-color: transparent;
+  box-shadow: none;
+  background-attachment: fixed;
+  border: 0;
+}
+
+.loginBtn{
+  background: #5da8da;
+  padding: 7px 12px;
+  border: 0;
+  color: black;
+  font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 7px;
+}
+.loginBtn:hover {
+  background: #cc4444;
+}
+.inputBlock{
+  border-radius: 7px;
+  padding-bottom: 5px;
+  }
