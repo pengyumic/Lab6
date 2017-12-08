@@ -1,1 +1,1 @@
-web: gunicorn courses-availability-search.wsgi --log-file -
+web: gunicorn course_alert.wsgi --log-file -
