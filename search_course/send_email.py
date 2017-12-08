@@ -20,8 +20,11 @@ class send_email(threading.Thread):
         while True:
             while len(self.one_search_list) == 0:
                 time.sleep(5)
+            start_time = time.time()            
             self.loops()
-            time.sleep(5)
+            elapsed = time.time() - start_time
+            if (elapsed < 60):
+                time.sleep(60 - elapsed)
                 
     def loops(self):
         need_delete = []
