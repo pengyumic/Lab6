@@ -2,13 +2,15 @@
 <html>
     <head>
 	<title>UserPage</title>
-  <link rel="stylesheet" href="/static/css/userPage.css">
+  {%  load staticfiles %}
+  <link rel="stylesheet" href="{%  static "css/userPage.css" %}">
     </head>
     <body id=mainbody>
 
 
       <div id="headingBlock">
-        <img id="logo" src="/static/img/alert.png" >
+        {%  load staticfiles %}
+        <img id="logo" src="{%  static "img/alert.png" %}" >
         <h1 id="heading">User Page</h1>
         <a   class="link" href="{% url 'logout' %}">Log Out</a>
   	    <a  class="link"  href="{% url 'search_course:search_page' %}"> Add new search </a>
