@@ -60,7 +60,7 @@ class search:
             'Host':'selfservice.mypurdue.purdue.edu',
             'Origin':'https://selfservice.mypurdue.purdue.edu',
             'Pragma':'no-cache',
-            'Referer':'https://selfservice.mypurdue.purdue.edu/prod/bwckctlg.p_disp_cat_term_date',
+            'Referer':'https://selfservice.mypurdue.purdue.edu/prod/bwckgens.p_proc_term_date',
             'Upgrade-Insecure-Requests':'1',
             'User-Agent':'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36'
         }
