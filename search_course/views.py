@@ -33,7 +33,7 @@ def get_form(form):
     wrap_keys(new_form, 'sel_attr', 'sel_camp', 'sel_insm',
               'sel_ptrm', 'sel_schd', 'sel_sess', 'sel_subj', 'sel_instr',)
     # manually add keys and values
-    new_form['term_in'] = '201820'
+    new_form['term_in'] = '201910'
     new_form['sel_levl'] = 'dummy'
     return new_form
 
