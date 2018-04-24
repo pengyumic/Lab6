@@ -13,18 +13,18 @@ class course:
         self.course_crn = None
         if url != None:
             self.course_crn = re.search('crn_in=(\d+)', url).group(1)
-            
-            
+
+
     def set_info(self, info):
         self.course_info = info
-        
+
 
     def set_seats(self, seats):
         self.course_seats = seats
 
 
     def set_url(self, url):
-        self.course_url = url        
+        self.course_url = url
         self.course_crn = re.search('crn_in=(\d+)', url).group(1)
 
     def is_available(self):
@@ -36,12 +36,12 @@ class course:
         return self.course_title+"\n"+str(self.course_seats)+"\n"\
             +str(self.course_seats)+"\n"+self.course_url+"\n"\
             +str(self.course_crn)
-    
+
 class search:
 
     def __init__(self):
         self.domain = 'https://selfservice.mypurdue.purdue.edu'
-            
+
     def get_courses(self, form):
         courses = self.find_urls(form)
         self.get_tables(courses)
@@ -60,7 +60,7 @@ class search:
             'Host':'selfservice.mypurdue.purdue.edu',
             'Origin':'https://selfservice.mypurdue.purdue.edu',
             'Pragma':'no-cache',
-            'Referer':'https://selfservice.mypurdue.purdue.edu/prod/bwckgens.p_proc_term_date',
+            'Referer':'https://selfservice.mypurdue.purdue.edu/prod/bwckctlg.p_disp_cat_term_date',
             'Upgrade-Insecure-Requests':'1',
             'User-Agent':'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36'
         }
@@ -97,7 +97,7 @@ class search:
             tree = html.fromstring(requests.get(courses[k].course_url, headers=header1, allow_redirects=False).text)
             table = tree.xpath('//table[@class="datadisplaytable"]')[1]
             rs = table.findall('tr')
-            
+
             nums = [rs[i].xpath('th[@class="ddlabel"]/span/text()|td[@class="dddefault"]/text()') for i in range(1, len(rs))]
             s = []
             for i in range(len(nums[0])):
